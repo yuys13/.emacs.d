@@ -21,6 +21,10 @@
   :init
   (setq parinfer-rust-auto-download t))
 
+(use-package company
+  :config
+  (global-company-mode t))
+
 ;; Enable vertico
 (use-package vertico
   :init
