@@ -20,6 +20,10 @@
   :config
   (bind-key "C-x g" 'magit-status))
 
+(use-package git-gutter
+  :config
+  (global-git-gutter-mode t))
+
 (use-package parinfer-rust-mode
   :hook emacs-lisp-mode
   :init
