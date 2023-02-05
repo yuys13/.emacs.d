@@ -12,4 +12,6 @@
 
 ######################
 /elpa/
+/custom.el
+/history
 /parinfer-rust/
