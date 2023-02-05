@@ -16,6 +16,10 @@
 
 (setq use-package-always-ensure t)
 
+(use-package magit
+  :config
+  (bind-key "C-x g" 'magit-status))
+
 (use-package parinfer-rust-mode
   :hook emacs-lisp-mode
   :init
