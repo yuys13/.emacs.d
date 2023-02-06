@@ -30,7 +30,8 @@
 
 (use-package company
   :config
-  (global-company-mode t))
+  (global-company-mode t)
+  (define-key company-active-map (kbd "C-h") nil))
 
 ;; Enable vertico
 (use-package vertico
