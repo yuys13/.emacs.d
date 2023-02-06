@@ -21,7 +21,8 @@
 (use-package ddskk
   :bind (("C-x C-j" . 'skk-mode))
   :config
-  (setq skk-sticky-key ";"))
+  (setq skk-sticky-key ";")
+  (setq skk-auto-insert-paren t))
 
 (use-package parinfer-rust-mode
   :hook emacs-lisp-mode
