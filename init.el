@@ -18,6 +18,11 @@
 
 (use-package magit)
 
+(use-package ddskk
+  :bind (("C-x C-j" . 'skk-mode))
+  :config
+  (setq skk-sticky-key ";"))
+
 (use-package parinfer-rust-mode
   :hook emacs-lisp-mode
   :init
