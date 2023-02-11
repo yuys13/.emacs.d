@@ -1,5 +1,7 @@
 # Compiled
 *.elc
+*.eln
+*.eln.tmp
 
 # Packaging
 .cask
@@ -15,3 +17,4 @@
 /custom.el
 /history
 /parinfer-rust/
+/transient/
