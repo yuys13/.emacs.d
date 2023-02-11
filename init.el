@@ -83,3 +83,18 @@
          ("M-A" . marginalia-cycle))
   :init
   (marginalia-mode)) 
+
+(use-package consult
+  :bind
+  (("C-x M-:" . consult-complex-command)
+   ("C-x b" . consult-buffer)
+   ("C-x 4b" . consult-buffer-other-window)
+   ("C-x 5b" . consult-buffer-other-frame)
+   ("C-x r b" . consult-bookmark)
+   ("C-x p b" . consult-project-buffer)
+   ("M-y" . consult-yank-pop)
+   ("M-g f" . consult-flymake)
+   ;;
+   ("C-s" . consult-line))
+  :config
+  (setq consult-find-command "fd --color=never --full-path ARG OPTS"))
