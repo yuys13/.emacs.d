@@ -98,3 +98,10 @@
    ("C-s" . consult-line))
   :config
   (setq consult-find-command "fd --color=never --full-path ARG OPTS"))
+
+(use-package embark
+  :bind(("C-." . embark-act)))
+
+(use-package embark-consult
+  :hook
+  (embark-collect-mode . consult-preview-at-point-mode))
