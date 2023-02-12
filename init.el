@@ -3,6 +3,7 @@
     (load custom-file))
 
 (bind-key* "C-h" 'delete-backward-char)
+(windmove-default-keybindings)
 
 (use-package package
   :config
