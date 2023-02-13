@@ -1,5 +1,5 @@
 (setq custom-file (locate-user-emacs-file "custom.el"))
-(if (file-exists-p (expand-file-name custom-file))
+(when (file-exists-p (expand-file-name custom-file))
     (load custom-file))
 
 (bind-key* "C-h" 'delete-backward-char)
