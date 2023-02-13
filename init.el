@@ -30,6 +30,20 @@
   :init
   (setq parinfer-rust-auto-download t))
 
+;; Don't be evil...
+;; But keep an evil mode inside for emergencies!!
+(use-package evil)
+;;  :config
+;;  (evil-mode t))
+(use-package key-chord
+  :config
+  (setq key-chord-two-keys-delay 0.5)
+  (key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
+  (key-chord-mode t))
+(use-package evil-surround
+  :config
+  (global-evil-surround-mode t))
+
 (use-package company
   :config
   (global-company-mode t)
