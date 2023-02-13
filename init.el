@@ -44,10 +44,25 @@
   :config
   (global-evil-surround-mode t))
 
-(use-package company
+(use-package corfu
+  :init
+  (global-corfu-mode)
   :config
-  (global-company-mode t)
-  (define-key company-active-map (kbd "C-h") nil))
+  (setq corfu-auto t)
+  (setq corfu-auto-delay 0)
+  (setq corfu-preselect-first nil)
+  (corfu-popupinfo-mode t))
+
+(use-package corfu-terminal
+  :config
+  (unless (display-graphic-p)
+    (corfu-terminal-mode +1)))
+
+(use-package kind-icon
+  :after corfu
+  :config
+  (setq kind-icon-default-face 'corfu-default)
+  (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter))
 
 ;; Enable vertico
 (use-package vertico
