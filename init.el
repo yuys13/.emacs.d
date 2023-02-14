@@ -45,6 +45,11 @@
   (global-evil-surround-mode t))
 
 (use-package corfu
+  :bind
+  (:map corfu-map
+    ("RET" . nil))
+    ;;("C-y" . 'corfu-insert)
+    ;;("C-e" . 'corfu-quit))
   :init
   (global-corfu-mode)
   :config
