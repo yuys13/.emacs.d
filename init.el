@@ -168,3 +168,17 @@
   (embark-collect-mode . consult-preview-at-point-mode))
 
 (use-package consult-ghq)
+
+(use-package eglot
+  :config
+  (defun deno-project-p ()
+    "Predicate for determining if the open project is a Deno one."
+    (let ((p-root (project-root (project-current))))
+      (file-exists-p (concat p-root "deno.json"))))
+
+  (defun es-server-program (_)
+      "Decide which server to use for ECMA Script based on project characteristics."
+      (cond ((deno-project-p) '("deno" "lsp" :initializationOptions (:enable t :lint t)))
+            (t                '("typescript-language-server" "--stdio"))))
+
+  (add-to-list 'eglot-server-programs '((js-mode typescript-mode) . es-server-program)))
