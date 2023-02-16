@@ -32,15 +32,24 @@
 
 ;; Don't be evil...
 ;; But keep an evil mode inside for emergencies!!
-(use-package evil)
+(use-package evil
+  :bind
+  (:map evil-normal-state-map
+    ("SPC /" . consult-line)
+    ("C-k" . embark-act))
+  (:map evil-insert-state-map
+    ("C-n" . nil)
+    ("C-p" . nil)))
 ;;  :config
 ;;  (evil-mode t))
 (use-package key-chord
+  :after evil
   :config
   (setq key-chord-two-keys-delay 0.5)
   (key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
   (key-chord-mode t))
 (use-package evil-surround
+  :after evil
   :config
   (global-evil-surround-mode t))
 
