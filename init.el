@@ -1,6 +1,6 @@
 (setq custom-file (locate-user-emacs-file "custom.el"))
 (when (file-exists-p (expand-file-name custom-file))
-    (load custom-file))
+  (load custom-file))
 
 (bind-key* "C-h" 'delete-backward-char)
 (windmove-default-keybindings)
@@ -35,12 +35,14 @@
 ;; But keep an evil mode inside for emergencies!!
 (use-package evil
   :bind
-  (:map evil-normal-state-map
-    ("SPC /" . consult-line)
-    ("C-k" . embark-act))
-  (:map evil-insert-state-map
-    ("C-n" . nil)
-    ("C-p" . nil)))
+  (:map
+   evil-normal-state-map
+   ("SPC /" . consult-line)
+   ("C-k" . embark-act))
+  (:map
+   evil-insert-state-map
+   ("C-n" . nil)
+   ("C-p" . nil)))
 ;;  :config
 ;;  (evil-mode t))
 (use-package key-chord
@@ -56,10 +58,11 @@
 
 (use-package corfu
   :bind
-  (:map corfu-map
-    ("RET" . nil))
-    ;;("C-y" . 'corfu-insert)
-    ;;("C-e" . 'corfu-quit))
+  (:map
+   corfu-map
+   ;; ("C-y" . 'corfu-insert)
+   ;; ("C-e" . 'corfu-quit)
+   ("RET" . nil))
   :init
   (global-corfu-mode)
   :config
@@ -82,16 +85,16 @@
   ;; Add `completion-at-point-functions', used by `completion-at-point'.
   (add-to-list 'completion-at-point-functions #'cape-dabbrev)
   (add-to-list 'completion-at-point-functions #'cape-file))
-  ;;(add-to-list 'completion-at-point-functions #'cape-history)
-  ;;(add-to-list 'completion-at-point-functions #'cape-keyword)
-  ;;(add-to-list 'completion-at-point-functions #'cape-tex)
-  ;;(add-to-list 'completion-at-point-functions #'cape-sgml)
-  ;;(add-to-list 'completion-at-point-functions #'cape-rfc1345)
-  ;;(add-to-list 'completion-at-point-functions #'cape-abbrev)
-  ;;(add-to-list 'completion-at-point-functions #'cape-ispell)
-  ;;(add-to-list 'completion-at-point-functions #'cape-dict)
-  ;;(add-to-list 'completion-at-point-functions #'cape-symbol)
-  ;;(add-to-list 'completion-at-point-functions #'cape-line)
+;;(add-to-list 'completion-at-point-functions #'cape-history)
+;;(add-to-list 'completion-at-point-functions #'cape-keyword)
+;;(add-to-list 'completion-at-point-functions #'cape-tex)
+;;(add-to-list 'completion-at-point-functions #'cape-sgml)
+;;(add-to-list 'completion-at-point-functions #'cape-rfc1345)
+;;(add-to-list 'completion-at-point-functions #'cape-abbrev)
+;;(add-to-list 'completion-at-point-functions #'cape-ispell)
+;;(add-to-list 'completion-at-point-functions #'cape-dict)
+;;(add-to-list 'completion-at-point-functions #'cape-symbol)
+;;(add-to-list 'completion-at-point-functions #'cape-line)
 
 (use-package corfu-terminal
   :config
@@ -187,8 +190,8 @@
       (file-exists-p (concat p-root "deno.json"))))
 
   (defun es-server-program (_)
-      "Decide which server to use for ECMA Script based on project characteristics."
-      (cond ((deno-project-p) '("deno" "lsp" :initializationOptions (:enable t :lint t)))
-            (t                '("typescript-language-server" "--stdio"))))
+    "Decide which server to use for ECMA Script based on project characteristics."
+    (cond ((deno-project-p) '("deno" "lsp" :initializationOptions (:enable t :lint t)))
+          (t                '("typescript-language-server" "--stdio"))))
 
   (add-to-list 'eglot-server-programs '((js-mode typescript-mode) . es-server-program)))
