@@ -23,7 +23,8 @@
   :bind (("C-x C-j" . 'skk-mode))
   :config
   (setq skk-sticky-key ";")
-  (setq skk-auto-insert-paren t))
+  (setq skk-auto-insert-paren t)
+  (setq skk-egg-like-newline t))
 
 (use-package parinfer-rust-mode
   :hook emacs-lisp-mode
