@@ -68,7 +68,7 @@
   :config
   (setq corfu-auto t)
   (setq corfu-auto-delay 0)
-  (setq corfu-preselect-first nil)
+  (setq corfu-preselect 'prompt)
   (corfu-popupinfo-mode t))
 
 (defun corfu-enable-in-minibuffer ()
