@@ -1,14 +1,31 @@
+;;; package --- init.el
+
+;;; Commentary:
+
+;;; Code:
 (setq custom-file (locate-user-emacs-file "custom.el"))
 (when (file-exists-p (expand-file-name custom-file))
   (load custom-file))
 
+;; for Emacs-28
+(eval-and-compile
+  (require 'package)
+  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+  (package-initialize)
+  (unless (package-installed-p 'use-package)
+    (package-refresh-contents)
+    (package-install 'use-package)))
+(require 'bind-key)
+
+;; for Emacs-29
+;; (eval-when-compile
+;;   (use-package package
+;;     :config
+;;     (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+;;     (package-initialize)))
+
 (bind-key* "C-h" 'delete-backward-char)
 (windmove-default-keybindings)
-
-(use-package package
-  :config
-  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-  (package-initialize))
 
 (use-package dracula-theme
   :ensure t
@@ -109,6 +126,7 @@
 
 ;; Enable vertico
 (use-package vertico
+  :functions crm-indicator
   :init
   (vertico-mode)
   ;; Add prompt indicator to `completing-read-multiple'.
@@ -155,7 +173,7 @@
          :map minibuffer-local-map
          ("M-A" . marginalia-cycle))
   :init
-  (marginalia-mode)) 
+  (marginalia-mode))
 
 (use-package consult
   :bind
@@ -168,9 +186,7 @@
    ("M-y" . consult-yank-pop)
    ("M-g f" . consult-flymake)
    ;;
-   ("C-s" . consult-line))
-  :config
-  (setq consult-find-command "fd --color=never --full-path ARG OPTS"))
+   ("C-s" . consult-line)))
 
 (use-package embark
   :bind(("C-." . embark-act)))
@@ -183,6 +199,7 @@
 (use-package consult-ghq)
 
 (use-package eglot
+  :functions deno-project-p
   :config
   (defun deno-project-p ()
     "Predicate for determining if the open project is a Deno one."
@@ -195,3 +212,5 @@
           (t                '("typescript-language-server" "--stdio"))))
 
   (add-to-list 'eglot-server-programs '((js-mode typescript-mode) . es-server-program)))
+
+;;; init.el ends here
