@@ -127,9 +127,9 @@
 ;;(add-to-list 'completion-at-point-functions #'cape-line)
 
 (use-package corfu-terminal
+  :unless (display-graphic-p)
   :config
-  (unless (display-graphic-p)
-    (corfu-terminal-mode +1)))
+  (corfu-terminal-mode +1))
 
 (use-package kind-icon
   :after corfu
