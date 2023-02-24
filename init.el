@@ -26,6 +26,7 @@
 
 (bind-key* "C-h" 'delete-backward-char)
 (windmove-default-keybindings)
+(global-display-line-numbers-mode t)
 
 (use-package dracula-theme
   :ensure t
