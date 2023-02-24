@@ -65,17 +65,16 @@
 ;; Don't be evil...
 ;; But keep an evil mode inside for emergencies!!
 (use-package evil
-  :bind
-  (:map
-   evil-normal-state-map
-   ("SPC /" . consult-line)
-   ("C-k" . embark-act))
-  (:map
-   evil-insert-state-map
-   ("C-n" . nil)
-   ("C-p" . nil)))
-;;  :config
-;;  (evil-mode t))
+  :commands (evil-mode evil-local-mode)
+  :config
+  (bind-keys :map
+       evil-normal-state-map
+       ("SPC /" . consult-line)
+       ("C-k" . embark-act))
+  (bind-keys :map
+       evil-insert-state-map
+       ("C-n" . nil)
+       ("C-p" . nil)))
 (use-package key-chord
   :after evil
   :config
