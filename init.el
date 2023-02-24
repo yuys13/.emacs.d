@@ -44,6 +44,10 @@
         (run-with-idle-timer 30 t 'recentf-save-list))
   (recentf-mode 1))
 
+(use-package which-key
+  :init
+  (which-key-mode))
+
 (use-package magit)
 
 (use-package ddskk
