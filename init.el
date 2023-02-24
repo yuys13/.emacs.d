@@ -34,6 +34,16 @@
 
 (setq use-package-always-ensure t)
 
+(use-package recentf
+  :defines recentf-auto-save-timer
+  :init
+  (setq recentf-max-saved-items 2000)
+  (setq recentf-exclude '(".recentf"))
+  (setq recentf-auto-cleanup 10)
+  (setq recentf-auto-save-timer
+        (run-with-idle-timer 30 t 'recentf-save-list))
+  (recentf-mode 1))
+
 (use-package magit)
 
 (use-package ddskk
