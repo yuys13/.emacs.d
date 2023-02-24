@@ -20,3 +20,5 @@
 /transient/
 /.cache/
 /recentf
+/ddskk/*
+!/ddskk/init

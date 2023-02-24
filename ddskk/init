@@ -1,0 +1,24 @@
+;;; .skk --- .skk -*- mode: emacs-lisp; coding: utf-8 -*-
+
+;;; Commentary:
+
+;;; Code:
+(eval-when-compile (require 'ddskk))
+
+(setq skk-sticky-key ";")
+(setq skk-auto-insert-paren t)
+(setq skk-egg-like-newline t)
+
+(setq skk-get-jisyo-directory (concat (file-name-as-directory skk-user-directory) "get-jisyo"))
+(unless (file-directory-p skk-get-jisyo-directory)
+  (skk-get skk-get-jisyo-directory))
+(setq skk-extra-jisyo-file-list (list
+                                 (concat (file-name-as-directory skk-get-jisyo-directory) "SKK-JISYO.L")
+                                 (concat (file-name-as-directory skk-get-jisyo-directory) "SKK-JISYO.jinmei")
+                                 (concat (file-name-as-directory skk-get-jisyo-directory) "SKK-JISYO.geo")
+                                 (concat (file-name-as-directory skk-get-jisyo-directory) "SKK-JISYO.station")
+                                 (concat (file-name-as-directory skk-get-jisyo-directory) "SKK-JISYO.propernoun")))
+
+(run-with-idle-timer 60 t 'skk-save-jisyo)
+
+;;; init ends here
