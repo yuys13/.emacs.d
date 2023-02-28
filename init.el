@@ -27,6 +27,7 @@
 (bind-key* "C-h" 'delete-backward-char)
 (windmove-default-keybindings)
 (global-display-line-numbers-mode t)
+(setq scroll-conservatively 1)
 
 (use-package dracula-theme
   :ensure t
