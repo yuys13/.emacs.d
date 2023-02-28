@@ -1,6 +1,8 @@
-;;; package --- init.el
+;;; init.el --- My init.el
 
 ;;; Commentary:
+
+;; My init.el
 
 ;;; Code:
 (setq custom-file (locate-user-emacs-file "custom.el"))
