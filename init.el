@@ -68,12 +68,10 @@
 (use-package evil
   :commands (evil-mode evil-local-mode)
   :config
-  (bind-keys :map
-       evil-normal-state-map
+  (bind-keys :map evil-normal-state-map
        ("SPC /" . consult-line)
        ("C-k" . embark-act))
-  (bind-keys :map
-       evil-insert-state-map
+  (bind-keys :map evil-insert-state-map
        ("C-n" . nil)
        ("C-p" . nil)))
 (use-package key-chord
@@ -88,19 +86,17 @@
   (global-evil-surround-mode t))
 
 (use-package corfu
-  :bind
-  (:map
-   corfu-map
-   ;; ("C-y" . 'corfu-insert)
-   ;; ("C-e" . 'corfu-quit)
-   ("RET" . nil))
   :init
   (global-corfu-mode)
-  :config
   (setq corfu-auto t)
   (setq corfu-auto-delay 0)
   (setq corfu-preselect 'prompt)
-  (corfu-popupinfo-mode t))
+  (corfu-popupinfo-mode t)
+  :config
+  (bind-keys :map corfu-map
+             ;; ("C-y" . 'corfu-insert)
+             ;; ("C-e" . 'corfu-quit)
+             ("RET" . nil)))
 
 (defun corfu-enable-in-minibuffer ()
   "Enable Corfu in the minibuffer if `completion-at-point' is bound."
