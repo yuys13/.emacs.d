@@ -17,7 +17,8 @@
                                  (concat (file-name-as-directory skk-get-jisyo-directory) "SKK-JISYO.jinmei")
                                  (concat (file-name-as-directory skk-get-jisyo-directory) "SKK-JISYO.geo")
                                  (concat (file-name-as-directory skk-get-jisyo-directory) "SKK-JISYO.station")
-                                 (concat (file-name-as-directory skk-get-jisyo-directory) "SKK-JISYO.propernoun")))
+                                 (concat (file-name-as-directory skk-get-jisyo-directory) "SKK-JISYO.propernoun")
+                                 (concat (file-name-as-directory skk-get-jisyo-directory) "SKK-JISYO.zipcode")))
 
 (run-with-idle-timer 60 t 'skk-save-jisyo)
 
