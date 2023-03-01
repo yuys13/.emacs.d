@@ -37,7 +37,7 @@
                            trailing
                            tabs
                            spaces
-                           lines
+                           ;; lines
                            newline
                            missing-newline-at-eof
                            ;; empty
