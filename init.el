@@ -31,6 +31,21 @@
 (global-display-line-numbers-mode t)
 (setq scroll-conservatively 1)
 
+(use-package whitespace
+  :init
+  (setq whitespace-style '(face
+                           trailing
+                           tabs
+                           spaces
+                           lines
+                           newline
+                           missing-newline-at-eof
+                           ;; empty
+                           ;; indentation
+                           space-mark
+                           tab-mark))
+  (global-whitespace-mode))
+
 (use-package dracula-theme
   :ensure t
   :config
