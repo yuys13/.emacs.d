@@ -20,7 +20,7 @@
 (require 'bind-key)
 
 ;; for Emacs-29
-;; (eval-when-compile
+;; (eval-and-compile
 ;;   (use-package package
 ;;     :config
 ;;     (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
