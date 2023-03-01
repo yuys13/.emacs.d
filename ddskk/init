@@ -12,8 +12,8 @@
 (setq skk-get-jisyo-directory (concat (file-name-as-directory skk-user-directory) "get-jisyo"))
 (unless (file-directory-p skk-get-jisyo-directory)
   (skk-get skk-get-jisyo-directory))
+(setq skk-large-jisyo (concat (file-name-as-directory skk-get-jisyo-directory) "SKK-JISYO.L"))
 (setq skk-extra-jisyo-file-list (list
-                                 (concat (file-name-as-directory skk-get-jisyo-directory) "SKK-JISYO.L")
                                  (concat (file-name-as-directory skk-get-jisyo-directory) "SKK-JISYO.jinmei")
                                  (concat (file-name-as-directory skk-get-jisyo-directory) "SKK-JISYO.geo")
                                  (concat (file-name-as-directory skk-get-jisyo-directory) "SKK-JISYO.station")
