@@ -240,19 +240,20 @@
 
 (use-package consult-ghq)
 
-(use-package eglot
-  :functions deno-project-p
-  :config
-  (defun deno-project-p ()
-    "Predicate for determining if the open project is a Deno one."
-    (let ((p-root (project-root (project-current))))
-      (file-exists-p (concat p-root "deno.json"))))
+(use-package flycheck
+  :init
+  (global-flycheck-mode))
 
-  (defun es-server-program (_)
-    "Decide which server to use for ECMA Script based on project characteristics."
-    (cond ((deno-project-p) '("deno" "lsp" :initializationOptions (:enable t :lint t)))
-          (t                '("typescript-language-server" "--stdio"))))
+(use-package lsp-mode
+  :hook
+  (((sh-mode vimrc-mode) . lsp-deferred)
+   (lsp-mode . lsp-enable-which-key-integration))
+  :commands lsp lsp-deferred)
 
-  (add-to-list 'eglot-server-programs '((js-mode typescript-mode) . es-server-program)))
+(use-package lsp-ui :commands lsp-ui-mode)
+(use-package consult-lsp)
+(use-package lsp-treemacs :commands lsp-treemacs-errors-list)
+
+(use-package vimrc-mode)
 
 ;;; init.el ends here
