@@ -33,18 +33,19 @@
 
 (use-package whitespace
   :init
-  (setq whitespace-style '(face
-                           trailing
-                           tabs
-                           ;; spaces
-                           ;; lines
-                           newline
-                           missing-newline-at-eof
-                           ;; empty
-                           ;; indentation
-                           ;; space-mark
-                           tab-mark))
-  (global-whitespace-mode))
+  (global-whitespace-mode)
+  :custom
+  (whitespace-style '(face
+                      trailing
+                      tabs
+                      ;; spaces
+                      ;; lines
+                      newline
+                      missing-newline-at-eof
+                      ;; empty
+                      ;; indentation
+                      ;; space-mark
+                      tab-mark)))
 
 (use-package diminish)
 
@@ -67,12 +68,13 @@
 (use-package recentf
   :defines recentf-auto-save-timer
   :init
-  (setq recentf-max-saved-items 2000)
-  (setq recentf-exclude '(".recentf"))
-  (setq recentf-auto-cleanup 10)
+  (recentf-mode 1)
   (setq recentf-auto-save-timer
         (run-with-idle-timer 30 t 'recentf-save-list))
-  (recentf-mode 1))
+  :custom
+  (recentf-max-saved-items 2000)
+  (recentf-exclude '(".recentf"))
+  (recentf-auto-cleanup 10))
 
 (use-package which-key
   :diminish
@@ -87,8 +89,8 @@
 
 (use-package parinfer-rust-mode
   :hook emacs-lisp-mode
-  :init
-  (setq parinfer-rust-auto-download t))
+  :custom
+  (parinfer-rust-auto-download t))
 
 ;; Don't be evil...
 ;; But keep an evil mode inside for emergencies!!
@@ -103,8 +105,9 @@
        ("C-p" . nil)))
 (use-package key-chord
   :after evil
+  :custom
+  (key-chord-two-keys-delay 0.5)
   :config
-  (setq key-chord-two-keys-delay 0.5)
   (key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
   (key-chord-mode t))
 (use-package evil-surround
@@ -115,10 +118,11 @@
 (use-package corfu
   :init
   (global-corfu-mode)
-  (setq corfu-auto t)
-  (setq corfu-auto-delay 0)
-  (setq corfu-preselect 'prompt)
   (corfu-popupinfo-mode t)
+  :custom
+  (corfu-auto t)
+  (corfu-auto-delay 0)
+  (corfu-preselect 'prompt)
   :config
   (bind-keys :map corfu-map
              ;; ("C-y" . 'corfu-insert)
@@ -157,8 +161,9 @@
 
 (use-package kind-icon
   :after corfu
+  :custom
+  (kind-icon-default-face 'corfu-default)
   :config
-  (setq kind-icon-default-face 'corfu-default)
   (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter))
 
 ;; Enable vertico
