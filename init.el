@@ -245,6 +245,8 @@
   (global-flycheck-mode))
 
 (use-package lsp-mode
+  :custom
+  (lsp-keymap-prefix "C-c l")
   :hook
   (((sh-mode vimrc-mode) . lsp-deferred)
    (lsp-mode . lsp-enable-which-key-integration))
