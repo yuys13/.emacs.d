@@ -16,11 +16,12 @@
   (package-initialize)
   (unless (package-installed-p 'use-package)
     (package-refresh-contents)
-    (package-install 'use-package)))
-(require 'bind-key)
+    (package-install 'use-package))
+  (require 'use-package))
 
 ;; for Emacs-29
 ;; (eval-and-compile
+;;   (require 'use-package)
 ;;   (use-package package
 ;;     :config
 ;;     (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
@@ -30,6 +31,8 @@
 (windmove-default-keybindings)
 (global-display-line-numbers-mode t)
 (setq scroll-conservatively 1)
+
+(setq use-package-always-ensure t)
 
 (use-package whitespace
   :init
@@ -59,11 +62,8 @@
   (highlight-indent-guides-method 'character))
 
 (use-package dracula-theme
-  :ensure t
   :config
   (load-theme 'dracula t))
-
-(setq use-package-always-ensure t)
 
 (use-package recentf
   :defines recentf-auto-save-timer
