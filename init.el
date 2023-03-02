@@ -46,6 +46,8 @@
                            tab-mark))
   (global-whitespace-mode))
 
+(use-package diminish)
+
 (use-package dracula-theme
   :ensure t
   :config
@@ -64,6 +66,7 @@
   (recentf-mode 1))
 
 (use-package which-key
+  :diminish
   :init
   (which-key-mode))
 
