@@ -36,13 +36,13 @@
   (setq whitespace-style '(face
                            trailing
                            tabs
-                           spaces
+                           ;; spaces
                            ;; lines
                            newline
                            missing-newline-at-eof
                            ;; empty
                            ;; indentation
-                           space-mark
+                           ;; space-mark
                            tab-mark))
   (global-whitespace-mode))
 
