@@ -245,17 +245,23 @@
   (global-flycheck-mode))
 
 (use-package lsp-mode
+  :defines lsp-lua-runtime-version lsp-lua-diagnostics-globals lsp-lua-workspace-library
   :custom
   (lsp-keymap-prefix "C-c l")
   :hook
-  (((sh-mode vimrc-mode) . lsp-deferred)
+  (((sh-mode lua-mode vimrc-mode) . lsp-deferred)
    (lsp-mode . lsp-enable-which-key-integration))
-  :commands lsp lsp-deferred)
+  :commands lsp lsp-deferred
+  :config
+  (setq lsp-lua-runtime-version "LuaJIT")
+  (setq lsp-lua-diagnostics-globals '((vim)))
+  (setq lsp-lua-workspace-library '((~/.local/share/nvim/lazy/neodev.nvim . t))))
 
 (use-package lsp-ui :commands lsp-ui-mode)
 (use-package consult-lsp)
 (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
 
+(use-package lua-mode)
 (use-package vimrc-mode)
 
 ;;; init.el ends here
