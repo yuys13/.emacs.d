@@ -65,6 +65,10 @@
   :config
   (load-theme 'dracula t))
 
+(use-package editorconfig
+  :config
+  (editorconfig-mode 1))
+
 (use-package recentf
   :defines recentf-auto-save-timer
   :init
