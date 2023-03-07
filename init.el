@@ -90,7 +90,8 @@
 
 (use-package ddskk
   :bind (("C-x C-j" . skk-mode))
-  :init (setq skk-user-directory (locate-user-emacs-file "ddskk")))
+  :custom
+  (skk-user-directory (locate-user-emacs-file "ddskk")))
 
 (use-package parinfer-rust-mode
   :hook emacs-lisp-mode
