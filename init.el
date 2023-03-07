@@ -66,6 +66,7 @@
   (load-theme 'dracula t))
 
 (use-package editorconfig
+  :diminish
   :config
   (editorconfig-mode 1))
 
