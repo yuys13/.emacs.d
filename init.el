@@ -250,6 +250,10 @@
   :init
   (global-flycheck-mode))
 
+(use-package yasnippet
+  :init
+  (yas-global-mode 1))
+
 (use-package lsp-mode
   :defines lsp-lua-runtime-version lsp-lua-diagnostics-globals lsp-lua-workspace-library
   :custom
