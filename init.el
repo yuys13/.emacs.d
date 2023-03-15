@@ -199,7 +199,9 @@
   ;;       #'command-completion-default-include-p)
 
   ;; Enable recursive minibuffers
-  (setq enable-recursive-minibuffers t))
+  (setq enable-recursive-minibuffers t)
+  :custom
+  (vertico-preselect 'prompt))
 
 ;; Persist history over Emacs restarts. Vertico sorts by history position.
 (use-package savehist
