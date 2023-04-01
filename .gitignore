@@ -13,14 +13,16 @@
 *.~undo-tree
 
 ######################
-/elpa/
-/custom.el
-/history
-/parinfer-rust/
-/transient/
 /.cache/
-/recentf
+/.lsp-session-v1
+/custom.el
 /ddskk/*
 !/ddskk/init
+/elpa/
+/eshell/
+/history
+/parinfer-rust/
 /projects
+/recentf
 /skk-get-jisyo/
+/transient/
