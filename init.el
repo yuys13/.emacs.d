@@ -20,6 +20,7 @@
         (package-initialize)))
     (prog1
       (require 'package)
+      (add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/nongnu/") t)
       (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
       (package-initialize)
       (unless (package-installed-p 'use-package)
