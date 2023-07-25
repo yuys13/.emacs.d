@@ -9,23 +9,23 @@
 (when (file-exists-p (expand-file-name custom-file))
   (load custom-file))
 
-;; for Emacs-28
+;; Initialize use-package
 (eval-and-compile
-  (require 'package)
-  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-  (package-initialize)
-  (unless (package-installed-p 'use-package)
-    (package-refresh-contents)
-    (package-install 'use-package))
-  (require 'use-package))
-
-;; for Emacs-29
-;; (eval-and-compile
-;;   (require 'use-package)
-;;   (use-package package
-;;     :config
-;;     (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-;;     (package-initialize)))
+  (if (>= emacs-major-version 29)
+    (prog1
+      (require 'use-package)
+      (use-package package
+        :config
+        (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+        (package-initialize)))
+    (prog1
+      (require 'package)
+      (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+      (package-initialize)
+      (unless (package-installed-p 'use-package)
+        (package-refresh-contents)
+        (package-install 'use-package))
+      (require 'use-package))))
 
 (bind-key* "C-h" 'delete-backward-char)
 (windmove-default-keybindings)
