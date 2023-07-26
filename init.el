@@ -63,9 +63,15 @@
   (highlight-indent-guides-responsive t)
   (highlight-indent-guides-method 'column))
 
-(use-package dracula-theme
+(use-package dracula-theme)
+
+(use-package modus-themes
+  :custom
+  (modus-themes-to-toggle
+   '(modus-vivendi-deuteranopia
+     modus-operandi-deuteranopia))
   :config
-  (load-theme 'dracula t))
+  (load-theme 'modus-vivendi-deuteranopia t))
 
 (use-package editorconfig
   :diminish
