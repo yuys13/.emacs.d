@@ -31,6 +31,7 @@
 (bind-key* "C-h" 'delete-backward-char)
 (windmove-default-keybindings)
 (global-display-line-numbers-mode t)
+(global-hl-line-mode t)
 (setq scroll-conservatively 1)
 
 (setq use-package-always-ensure t)
