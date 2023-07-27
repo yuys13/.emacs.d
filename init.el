@@ -36,6 +36,11 @@
 
 (setq use-package-always-ensure t)
 
+(use-package ediff
+  :custom
+  (ediff-window-setup-function 'ediff-setup-windows-plain)
+  (ediff-split-window-function 'split-window-horizontally))
+
 (use-package whitespace
   :init
   (global-whitespace-mode)
