@@ -59,9 +59,9 @@
 
 (use-package diminish)
 
+(require 'color)
 (use-package highlight-indent-guides
   :diminish
-  :functions color-clamp
   :hook
   ((prog-mode yaml-mode) . highlight-indent-guides-mode)
   :custom
@@ -69,13 +69,13 @@
   (highlight-indent-guides-responsive t)
   (highlight-indent-guides-method 'column)
   :config
-  (defun my-color-lighten-hsl (H S L percent)
-    "color-lighten-hsl from Emacs 28.2"
-    (list H S (color-clamp (+ L (/ percent 100.0)))))
   (defun my-highlight-indent-guides-auto-set-faces (func &rest args)
-    (advice-add 'color-lighten-hsl :override 'my-color-lighten-hsl)
-    (apply func args)
-    (advice-remove 'color-lighten-hsl 'my-color-lighten-hsl))
+    "Emurate Emacs 28.2"
+    (cl-letf (((symbol-function 'color-lighten-hsl)
+               (lambda (H S L percent)
+                 "color-lighten-hsl from Emacs 28.2"
+                 (list H S (color-clamp (+ L (/ percent 100.0)))))))
+      (apply func args)))
   (advice-add 'highlight-indent-guides-auto-set-faces :around 'my-highlight-indent-guides-auto-set-faces))
 
 (use-package dracula-theme)
