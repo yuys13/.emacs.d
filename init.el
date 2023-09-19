@@ -125,6 +125,8 @@
 ;; But keep an evil mode inside for emergencies!!
 (use-package evil
   :commands (evil-mode evil-local-mode)
+  :init
+  (setq evil-search-module 'evil-search)
   :config
   (bind-keys :map evil-normal-state-map
        ("SPC /" . consult-line)
