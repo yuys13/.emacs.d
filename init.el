@@ -271,7 +271,10 @@
   :hook
   (embark-collect-mode . consult-preview-at-point-mode))
 
-(use-package consult-ghq)
+(use-package consult-ghq
+  :after (affe))
+
+(use-package affe)
 
 (use-package flycheck
   :init
