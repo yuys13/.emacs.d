@@ -116,6 +116,10 @@
   :custom
   (skk-user-directory (locate-user-emacs-file "ddskk")))
 
+(use-package ddskk-posframe
+  :custom
+  (ddskk-posframe-mode t))
+
 (use-package parinfer-rust-mode
   :hook emacs-lisp-mode
   :custom
