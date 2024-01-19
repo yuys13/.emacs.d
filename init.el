@@ -12,14 +12,14 @@
 ;; Initialize use-package
 (eval-and-compile
   (if (>= emacs-major-version 29)
+      (prog1
+          (require 'use-package)
+        (use-package package
+          :config
+          (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+          (package-initialize)))
     (prog1
-      (require 'use-package)
-      (use-package package
-        :config
-        (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-        (package-initialize)))
-    (prog1
-      (require 'package)
+        (require 'package)
       (add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/nongnu/") t)
       (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
       (package-initialize)
@@ -133,11 +133,11 @@
   (setq evil-search-module 'evil-search)
   :config
   (bind-keys :map evil-normal-state-map
-       ("SPC /" . consult-line)
-       ("C-k" . embark-act))
+             ("SPC /" . consult-line)
+             ("C-k" . embark-act))
   (bind-keys :map evil-insert-state-map
-       ("C-n" . nil)
-       ("C-p" . nil)))
+             ("C-n" . nil)
+             ("C-p" . nil)))
 (use-package key-chord
   :after evil
   :custom
@@ -314,7 +314,7 @@
   (setopt ellama-language "Japanese")
   (require 'llm-ollama)
   (setopt ellama-provider
-    (make-llm-ollama
-      :chat-model "mistral" :embedding-model "mistral")))
+          (make-llm-ollama
+           :chat-model "mistral" :embedding-model "mistral")))
 
 ;;; init.el ends here
