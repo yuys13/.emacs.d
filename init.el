@@ -12,14 +12,14 @@
 ;; Initialize use-package
 (eval-and-compile
   (if (>= emacs-major-version 29)
-      (prog1
-          (require 'use-package)
+      (progn
+        (require 'use-package)
         (use-package package
           :config
           (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
           (package-initialize)))
-    (prog1
-        (require 'package)
+    (progn
+      (require 'package)
       (add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/nongnu/") t)
       (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
       (package-initialize)
