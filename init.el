@@ -311,10 +311,11 @@
 
 (use-package ellama
   :init
-  (setopt ellama-language "Japanese")
   (require 'llm-ollama)
-  (setopt ellama-provider
-          (make-llm-ollama
-           :chat-model "mistral" :embedding-model "mistral")))
+  :custom
+  (ellama-language "Japanese")
+  (ellama-provider
+   (make-llm-ollama
+    :chat-model "mistral" :embedding-model "mistral")))
 
 ;;; init.el ends here
