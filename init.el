@@ -111,6 +111,10 @@
 
 (use-package magit)
 
+(use-package git-gutter
+  :config
+  (global-git-gutter-mode t))
+
 (use-package ddskk
   :bind (("C-x C-j" . skk-mode))
   :custom
