@@ -11,7 +11,7 @@
 
 ;; Initialize use-package
 (eval-and-compile
-  (if (>= emacs-major-version 29)
+  (if (version<= "29" emacs-version)
       (progn
         (require 'use-package)
         (use-package package
