@@ -129,6 +129,11 @@
   :custom
   (parinfer-rust-auto-download t))
 
+(use-package dmacro
+  :diminish
+  :config
+  (global-dmacro-mode))
+
 ;; Don't be evil...
 ;; But keep an evil mode inside for emergencies!!
 (use-package evil
