@@ -124,10 +124,14 @@
   :custom
   (ddskk-posframe-mode t))
 
-(use-package parinfer-rust-mode
-  :hook emacs-lisp-mode
+(use-package smartparens
+  :hook
+  ((prog-mode text-mode) . smartparens-mode)
+  (emacs-lisp-mode . smartparens-strict-mode)
   :custom
-  (parinfer-rust-auto-download t))
+  (sp-base-key-bindings 'sp)
+  :config
+  (require 'smartparens-config))
 
 (use-package dmacro
   :diminish
