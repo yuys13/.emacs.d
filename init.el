@@ -63,7 +63,7 @@
 (use-package highlight-indent-guides
   :diminish
   :hook
-  ((prog-mode yaml-mode) . highlight-indent-guides-mode)
+  ((prog-mode yaml-mode markdown-mode) . highlight-indent-guides-mode)
   :custom
   (highlight-indent-guides-auto-enabled t)
   (highlight-indent-guides-responsive t)
@@ -321,6 +321,9 @@
 
 (use-package lua-mode)
 (use-package vimrc-mode)
+(use-package markdown-mode
+  :custom
+  (markdown-list-indent-width 2))
 
 (use-package ellama
   :init
