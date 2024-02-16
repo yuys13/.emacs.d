@@ -112,6 +112,7 @@
 (use-package magit)
 
 (use-package git-gutter
+  :diminish
   :config
   (global-git-gutter-mode t))
 
@@ -121,6 +122,7 @@
   (skk-user-directory (locate-user-emacs-file "ddskk")))
 
 (use-package ddskk-posframe
+  :diminish
   :custom
   (ddskk-posframe-mode t))
 
