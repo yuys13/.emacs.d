@@ -78,6 +78,10 @@
       (apply func args)))
   (advice-add 'highlight-indent-guides-auto-set-faces :around 'my-highlight-indent-guides-auto-set-faces))
 
+(use-package beacon
+  :config
+  (beacon-mode 1))
+
 (use-package dracula-theme)
 
 (use-package modus-themes
