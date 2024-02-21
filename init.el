@@ -1,4 +1,4 @@
-;;; init.el --- My init.el
+;;; init.el --- My init.el  -*- lexical-binding: t; -*-
 
 ;;; Commentary:
 
