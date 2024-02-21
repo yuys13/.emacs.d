@@ -82,6 +82,8 @@
   :config
   (beacon-mode 1))
 
+(use-package solarized-theme)
+
 (use-package dracula-theme)
 
 (use-package modus-themes
