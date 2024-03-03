@@ -88,9 +88,7 @@
   :custom
   (modus-themes-to-toggle
    '(modus-vivendi-deuteranopia
-     modus-operandi-deuteranopia))
-  :config
-  (load-theme 'modus-vivendi-deuteranopia t))
+     modus-operandi-deuteranopia)))
 
 (use-package editorconfig
   :diminish
