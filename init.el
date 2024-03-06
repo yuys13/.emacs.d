@@ -32,6 +32,8 @@
 (global-display-line-numbers-mode t)
 (setq scroll-conservatively 1)
 
+(setq backup-directory-alist `((".*" . ,(expand-file-name "backups" (locate-user-emacs-file ".cache")))))
+
 (setq use-package-always-ensure t)
 
 (use-package ediff
