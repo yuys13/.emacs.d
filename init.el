@@ -172,12 +172,7 @@
   :custom
   (corfu-auto t)
   (corfu-auto-delay 0)
-  (corfu-preselect 'prompt)
-  :config
-  (bind-keys :map corfu-map
-             ;; ("C-y" . 'corfu-insert)
-             ;; ("C-e" . 'corfu-quit)
-             ("RET" . nil)))
+  (corfu-preselect 'prompt))
 
 (defun corfu-enable-in-minibuffer ()
   "Enable Corfu in the minibuffer if `completion-at-point' is bound."
