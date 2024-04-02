@@ -36,6 +36,32 @@
 
 (setq use-package-always-ensure t)
 
+(repeat-mode +1)
+
+(use-package window
+  :ensure nil
+  :bind
+  (:repeat-map other-window-repeat-map
+               ;; Defaults:
+               ("o" . other-window)
+               ("O" . other-window-reverse)
+               ("h" . windmove-left)
+               ("j" . windmove-down)
+               ("k" . windmove-up)
+               ("l" . windmove-right)
+               ;; Resizing:
+               ("K" . enlarge-window)
+               ("J" . shrink-window)
+               ("H" . enlarge-window-horizontally)
+               ("L" . shrink-window-horizontally)
+               ("+" . balance-windows)
+               ;; Adding/Deleting:
+               ("-" . split-window-vertically)
+               ("|" . split-window-horizontally)
+               ("0" . delete-window)
+               ("1" . delete-other-windows)
+               ("u" . winner-undo)))
+
 (use-package ediff
   :custom
   (ediff-window-setup-function 'ediff-setup-windows-plain)
