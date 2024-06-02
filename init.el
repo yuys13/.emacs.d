@@ -146,11 +146,11 @@
   ("C-c n" . git-gutter:next-hunk)
   ("C-c p" . git-gutter:previous-hunk)
   (:repeat-map my/git-gutter-repeat-map
-	       ("n" . git-gutter:next-hunk)
-	       ("p" . git-gutter:previous-hunk)
-	       ("s" . git-gutter:stage-hunk)
-	       ("r" . git-gutter:revert-hunk)
-	       :repeat-docstring
+               ("n" . git-gutter:next-hunk)
+               ("p" . git-gutter:previous-hunk)
+               ("s" . git-gutter:stage-hunk)
+               ("r" . git-gutter:revert-hunk)
+               :repeat-docstring
                "Keymap to repeat git-gutter-* commands."))
 
 (use-package ddskk
