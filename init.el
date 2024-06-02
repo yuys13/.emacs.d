@@ -329,7 +329,11 @@
 
 (use-package flycheck
   :init
-  (global-flycheck-mode))
+  (global-flycheck-mode)
+  :bind
+  (:repeat-map my/flycheck-repeat-map
+               ("n" . flycheck-next-error)
+               ("p" . flycheck-previous-error)))
 
 (use-package yasnippet
   :init
