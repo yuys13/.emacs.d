@@ -347,7 +347,11 @@
   (setq lsp-lua-runtime-version "LuaJIT")
   (setq lsp-lua-diagnostics-globals '((vim)))
   (when (executable-find "nvim")
-    (setq lsp-lua-workspace-library (ht ((concat (file-name-as-directory (shell-command-to-string "nvim --headless \"+echo stdpath('data')\" +qa")) "lazy") t)))))
+    (setq lsp-lua-workspace-library
+          (ht
+           ((concat (file-name-as-directory (shell-command-to-string "nvim --headless '+echo $VIMRUNTIME' +qa")) "lua") t)
+           ((concat (file-name-as-directory (shell-command-to-string "nvim --headless \"+echo stdpath('data')\" +qa")) "lazy") t)
+           ))))
 
 (use-package lsp-ui :commands lsp-ui-mode)
 (use-package consult-lsp)
