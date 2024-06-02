@@ -140,8 +140,18 @@
 
 (use-package git-gutter
   :diminish
-  :config
-  (global-git-gutter-mode t))
+  :init
+  (global-git-gutter-mode t)
+  :bind
+  ("C-c n" . git-gutter:next-hunk)
+  ("C-c p" . git-gutter:previous-hunk)
+  (:repeat-map my/git-gutter-repeat-map
+	       ("n" . git-gutter:next-hunk)
+	       ("p" . git-gutter:previous-hunk)
+	       ("s" . git-gutter:stage-hunk)
+	       ("r" . git-gutter:revert-hunk)
+	       :repeat-docstring
+               "Keymap to repeat git-gutter-* commands."))
 
 (use-package ddskk
   :bind (("C-x C-j" . skk-mode))
