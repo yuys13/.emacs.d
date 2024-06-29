@@ -163,6 +163,10 @@
   :custom
   (ddskk-posframe-mode t))
 
+(use-package vundo
+  :custom
+  (vundo-glyph-alist vundo-unicode-symbols))
+
 (use-package smartparens
   :hook
   ((prog-mode text-mode) . smartparens-mode)
