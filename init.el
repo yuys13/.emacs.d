@@ -380,4 +380,8 @@
    (make-llm-ollama
     :chat-model "mistral" :embedding-model "mistral")))
 
+;; Local Variables:
+;; indent-tabs-mode: nil
+;; End:
+
 ;;; init.el ends here
