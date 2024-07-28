@@ -378,7 +378,7 @@
   (ellama-language "Japanese")
   (ellama-provider
    (make-llm-ollama
-    :chat-model "mistral" :embedding-model "mistral")))
+    :chat-model "llama3" :embedding-model "llama3")))
 
 ;; Local Variables:
 ;; indent-tabs-mode: nil
