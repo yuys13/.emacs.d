@@ -154,9 +154,21 @@
                "Keymap to repeat git-gutter-* commands."))
 
 (use-package ddskk
+  :init
+  (setq skk-get-jisyo-directory (concat (file-name-as-directory user-emacs-directory) "skk-get-jisyo"))
   :bind (("C-x C-j" . skk-mode))
   :custom
-  (skk-user-directory (locate-user-emacs-file "ddskk")))
+  (skk-user-directory (locate-user-emacs-file "ddskk"))
+  (skk-sticky-key ";")
+  (skk-auto-insert-paren t)
+  (skk-egg-like-newline t)
+  (skk-large-jisyo (concat (file-name-as-directory skk-get-jisyo-directory) "SKK-JISYO.L"))
+  (skk-extra-jisyo-file-list (list
+                                   (concat (file-name-as-directory skk-get-jisyo-directory) "SKK-JISYO.jinmei")
+                                   (concat (file-name-as-directory skk-get-jisyo-directory) "SKK-JISYO.geo")
+                                   (concat (file-name-as-directory skk-get-jisyo-directory) "SKK-JISYO.station")
+                                   (concat (file-name-as-directory skk-get-jisyo-directory) "SKK-JISYO.propernoun")
+                                   (concat (file-name-as-directory skk-get-jisyo-directory) "SKK-JISYO.zipcode"))))
 
 (use-package ddskk-posframe
   :diminish
