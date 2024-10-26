@@ -45,6 +45,7 @@
                ;; Defaults:
                ("o" . other-window)
                ("O" . other-window-reverse)
+               ;; Move:
                ("h" . windmove-left)
                ("j" . windmove-down)
                ("k" . windmove-up)
